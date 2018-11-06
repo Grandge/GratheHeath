@@ -4,9 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GratheHeath"
+        xmlns:vm="clr-namespace:GratheHeath.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Grathe Heath " Height="450" Width="1109">
+    <Window.DataContext>
+        <vm:VM選択項目 />
+    </Window.DataContext>
+    <Grid Margin="0,0,0,0">
+        <!-- Menu x:Name="menu" Height="20" VerticalAlignment="Top" Width="792" HorizontalAlignment="Left" -->
+        <!-- MenuItem FontFamily="Meiryo UI" Header="ファイル(_F)" -->
+        <!-- MenuItem Header="開く(_O)" Click="MenuItem_OpenClick"/ -->
+        <!-- MenuItem Header="保存(_S)"/ -->
+        <!-- MenuItem Header="名前をつけて保存(_A)"/ -->
+        <!-- MenuItem Header="閉じる(_X)"/ -->
+        <!-- / -->
+        <!-- / -->
+        <TextBox x:Name="textBox評価項目"  Margin="479,25,316,0" TextWrapping="Wrap" FontFamily="Meiryo" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="textBoxMessages" HorizontalAlignment="Right" Margin="0,25,0,0" TextWrapping="Wrap" Width="311" FontFamily="Meiryo" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="textBoxTaskCode" HorizontalAlignment="Left" Height="23" Margin="20,386,0,0" TextWrapping="Wrap" Text="DV07.6.3" VerticalAlignment="Top" Width="425" RenderTransformOrigin="0.333,0.217"/>
+        <ListBox x:Name="listBoxタスクプロフィール選択" HorizontalAlignment="Left" Height="100" Margin="20,25,0,0" VerticalAlignment="Top" Width="425" 
+                 DisplayMemberPath="Name" SelectedValuePath="Code" ItemsSource="{Binding ListItem}"  SelectionChanged="タスクプロフィール選択_SelectionChanged" SelectionMode="Single"/>
+        <TextBox x:Name="textBoxタスクプロフィール" HorizontalAlignment="Left" Height="25" Margin="20,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="425"/>
+        <ListBox x:Name="listBoxタスク一覧選択" HorizontalAlignment="Left" Height="206" Margin="20,175,0,0" VerticalAlignment="Top" Width="425"
+                 DisplayMemberPath="Name" SelectedValuePath="Code" ItemsSource="{Binding ListItem}"  SelectionChanged="タスク一覧選択_SelectionChanged" SelectionMode="Single"/>
     </Grid>
 </Window>
